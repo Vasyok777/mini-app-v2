@@ -1,0 +1,48 @@
+.footer-menu {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: -2px;
+	display: flex;
+	padding: 20px 20px;
+	justify-content: space-between;
+	flex-shrink: 0;
+	background: var(--background-color);
+	&__link {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		line-height: 140%;
+		width: 100px;
+		color: var(--footer-text);
+		& svg {
+			opacity: 0.4;
+		}
+		&.active svg {
+			opacity: 1;
+		}
+		& svg path {
+			fill: var(--app-logo);
+		}
+		& .home-svg-path path {
+			stroke: var(--app-logo);
+			fill: transparent;
+			&.path {
+				fill: var(--app-logo);
+			}
+		}
+		& svg path.friend-path-fill {
+			fill: #81828c;
+		}
+		&.active {
+			color: var(--app-logo);
+			text-align: center;
+			font-size: 16px;
+			font-weight: 600;
+			& svg path {
+				// fill: var(--app-logo);
+			}
+		}
+	}
+}

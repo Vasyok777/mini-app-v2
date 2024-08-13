@@ -1,0 +1,24 @@
+.rewards {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-between;
+	&-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		& h2 {
+			margin-bottom: 12px;
+		}
+		&__img {
+			border-radius: 12px;
+			background: #e9eaed;
+			width: 232px;
+			height: 232px;
+			margin-bottom: 60px;
+		}
+		& p {
+			padding: 0 32px;
+		}
+	}
+}

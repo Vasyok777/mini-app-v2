@@ -1,0 +1,34 @@
+@import url('https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro');
+
+body {
+	font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+	background: var(--background-color);
+	& #root {
+		max-width: 768px;
+		margin: 0 auto;
+		height: 100%;
+	}
+}
+
+html,
+body {
+	height: 100%;
+}
+body.lock {
+	overflow: hidden;
+}
+.app-link-button {
+	width: 100%;
+	border: none;
+}
+.wrapper {
+	padding: 0px 20px 30px;
+}
+p {
+	color: var(--text);
+	text-align: center;
+	font-family: 'Neue Haas Grotesk Display Pro';
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 128.571%;
+}

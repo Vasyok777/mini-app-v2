@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+  rpc GetUser (UserRequest) returns (UserResponse);
+  rpc GetUserReferrals (GetUserReferralsRequest) returns (UserReferralsResponse);
+  rpc UpdateUserPoints(UpdateUserPointsRequest) returns (UserResponse);
+
+  rpc GetUserTasks (GetUserTasksRequest) returns (GetUserTasksResponse);
+  rpc CompleteTask (CompleteTaskRequest) returns (CompleteTaskResponse);
+  rpc CheckAndUpdateTasks (CheckAndUpdateTasksRequest) returns (CheckAndUpdateTasksResponse);
+
+  rpc SetUserAvatar (SetUserAvatarRequest) returns (SetUserAvatarResponse);
+  rpc GetUserAvatar (GetUserAvatarRequest) returns (GetUserAvatarResponse);
+  rpc DeleteUserAvatar (DeleteUserAvatarRequest) returns (DeleteUserAvatarResponse);
+
+  rpc UpdateUserNickname (UpdateUserNicknameRequest) returns (UserResponse);
+
+
+}
+
+message User {
+  int64 telegram_id = 1;
+  int64 created_at = 2;
+  string nickname = 3;
+  int64 points = 4;
+}
+
+message UpdateUserNicknameRequest {
+  int64 telegram_id = 1;
+  string new_nickname = 2;
+}
+
+message Task {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  bool is_automatic = 4;
+  int64 reward_points = 5;
+  optional int64 progress = 6;
+  optional int64 goal = 7;
+  bool completed = 8;
+}
+
+message GetUserTasksRequest {
+  int64 telegram_id = 1;
+}
+
+message GetUserTasksResponse {
+  bool success = 1;
+  repeated Task tasks = 2;
+  optional string message = 3;
+}
+
+message CompleteTaskRequest {
+  int64 telegram_id = 1;
+  int64 task_id = 2;
+}
+
+message CompleteTaskResponse {
+  bool success = 1;
+  optional string message = 2;
+}
+
+message CreateUserRequest {
+  int64 telegram_id = 1;
+  optional int64 referrer_id = 2;
+  string nickname = 3;
+}
+
+message CreateUserResponse {
+  bool success = 1;
+  optional User user = 2;
+  optional string message = 3;
+  bool user_exists = 4;  // Новое поле
+}
+
+message UserResponse {
+  bool success = 1;
+  optional User user = 2;
+  optional string message = 3;
+}
+
+message UserRequest {
+  int64 telegram_id = 1;
+}
+
+message GetUserReferralsRequest {
+  int64 telegram_id = 1;
+}
+
+message UserReferralsResponse {
+  bool success = 1;
+  optional UserReferrals data = 2;
+  optional string message = 3;
+}
+
+message UserReferrals {
+  repeated int64 referrals = 1;
+  int64 total_count = 2;
+}
+
+message UpdateUserPointsRequest {
+  int64 telegram_id = 1;
+  int64 points = 2;
+}
+
+message CheckAndUpdateTasksRequest {
+  int64 telegram_id = 1;
+}
+
+message CheckAndUpdateTasksResponse {
+  bool success = 1;
+  optional string message = 2;
+}
+
+message UserAvatar {
+  int64 telegram_id = 1;
+  string avatar_url = 2;
+  int64 updated_at = 3;
+}
+
+message SetUserAvatarRequest {
+  int64 telegram_id = 1;
+  string avatar_url = 2;
+}
+
+message SetUserAvatarResponse {
+  bool success = 1;
+  optional string message = 2;
+}
+
+message GetUserAvatarRequest {
+  int64 telegram_id = 1;
+}
+
+message GetUserAvatarResponse {
+  bool success = 1;
+  optional UserAvatar avatar = 2;
+  optional string message = 3;
+}
+
+message DeleteUserAvatarRequest {
+  int64 telegram_id = 1;
+}
+
+message DeleteUserAvatarResponse {
+  bool success = 1;
+  optional string message = 2;
+}

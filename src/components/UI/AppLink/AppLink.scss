@@ -1,0 +1,15 @@
+.app-link {
+	display: flex;
+	padding: 24px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	color: var(--white);
+	font-family: 'Neue Haas Grotesk Display Pro';
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 140%;
+	border-radius: 12px;
+	background: var(--app-link-bg);
+	height: 62px;
+}

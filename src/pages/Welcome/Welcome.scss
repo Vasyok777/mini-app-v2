@@ -1,0 +1,18 @@
+.welcome {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-between;
+	&-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 60px;
+		& p {
+			padding: 0 32px;
+			margin-top: 10px;
+		}
+	}
+	&-link {
+	}
+}

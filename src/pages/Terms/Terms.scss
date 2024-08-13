@@ -1,0 +1,33 @@
+.terms {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	&-title {
+		color: var(--title);
+		// font-family: 'Base Neue Trial';
+		font-size: 96px;
+		font-weight: 900;
+		line-height: 1;
+		margin-bottom: 42px;
+	}
+	&-subtitle {
+		color: var(--title);
+		text-align: center;
+		font-family: 'Neue Haas Grotesk Display Pro';
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 140%;
+		margin-bottom: 16px;
+	}
+	& p {
+		color: var(--text);
+		text-align: center;
+		font-family: 'Neue Haas Grotesk Display Pro';
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 128.571%;
+	}
+}

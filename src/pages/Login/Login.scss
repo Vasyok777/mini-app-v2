@@ -1,0 +1,154 @@
+.login {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	&-title {
+		color: var(--app-logo);
+		text-align: center;
+		font-family: 'Neue Haas Grotesk Display Pro';
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 116.667%;
+		padding-top: 72px;
+	}
+	&-ava {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&-form {
+		& input {
+			border-radius: 12px;
+			border: 1px solid var(--border-input);
+			background: var(--bg-input);
+			width: 100%;
+			display: flex;
+			padding: 19px 24px;
+			margin-bottom: 10px;
+			color: var(--title);
+			font-family: 'Neue Haas Grotesk Display Pro';
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 140%;
+			padding-right: 48px;
+		}
+		&__input {
+			position: relative;
+			& svg {
+				position: absolute;
+				right: 20px;
+				top: 0;
+				bottom: 0;
+				transform: translateY(20px);
+			}
+		}
+		&__label {
+			padding: 0 24px;
+			margin-bottom: 12.5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: var(--text);
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 140%;
+			&-success {
+				color: #1fcc5d;
+				font-family: 'Neue Haas Grotesk Display Pro';
+				font-size: 12px;
+				font-weight: 600;
+				line-height: 140%;
+			}
+		}
+	}
+	&-choose {
+		max-height: 270px;
+		height: 270px;
+		opacity: 1;
+		background: var(--modal-bg);
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 100;
+		padding: 40px 20px 60px 20px;
+		border-radius: 12px 12px 0 0;
+		border: 1px solid var(--modal-border);
+		// visibility: hidden;
+		transition: all 0.5s ease;
+		transform: translateY(100%);
+		& h4 {
+			color: var(--app-logo);
+			font-size: 24px;
+			font-weight: 600;
+			text-align: center;
+			line-height: 140%;
+			margin-bottom: 16px;
+		}
+		&__button {
+			border-radius: 12px;
+			background: #4879b2;
+			display: flex;
+			padding: 24px;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+			align-self: stretch;
+			color: #fff;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 140%;
+			height: 62px;
+			border: none;
+			outline: none;
+			width: 100%;
+			margin-bottom: 16px;
+			position: relative;
+			& input {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				opacity: 0;
+				height: 100%;
+			}
+		}
+		&__cancel {
+			border-radius: 12px;
+			border: 1px solid var(--modal-border);
+			background: var(--modal-bg);
+			outline: none;
+			border-radius: 12px;
+			height: 62px;
+			width: 100%;
+			color: var(--text);
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 140%;
+			leading-trim: both;
+			text-edge: cap;
+		}
+	}
+}
+body.lock .login-choose {
+	opacity: 1;
+	z-index: 100;
+	transform: translateY(00%);
+	transition: all 0.5s ease;
+}
+body.lock .login-choose__overlay {
+	background: rgba(#03061a, 0.5);
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	bottom: 0;
+	top: 0;
+}

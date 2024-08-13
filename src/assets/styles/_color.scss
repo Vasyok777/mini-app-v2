@@ -1,0 +1,46 @@
+:root {
+	--background-color: #f5f6f8;
+	--app-logo: #03061a;
+	--white: #fff;
+	--black: #fff;
+	--app-link-bg: #4879b2;
+	--title: #03061a;
+	--text: rgba(#03061a, 0.5);
+	--text-two: rgba(#fff, 1);
+	--outline: #4879b2;
+	--bg-input: linear-gradient(
+			0deg,
+			rgba(31, 204, 93, 0.05) 0%,
+			rgba(31, 204, 93, 0.05) 100%
+		),
+		#f5f6f8;
+	--border-input: #e9eaed;
+	--modal-bg: #fff;
+	--modal-border: #e9eaed;
+	--circle: rgba(#03061a, 0.1);
+	--text-game: #ffffff80;
+	--footer-text: rgba(3, 6, 26, 0.4);
+	--footer-svg: rgba(3, 6, 26, 0.2);
+	--friends-text: rgba(3, 6, 26, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-color: #03061a;
+		--app-logo: #fff;
+		--white: #fff;
+		--black: #03061a;
+		--app-link-bg: #4879b2;
+		--title: #fff;
+		--outline: #fff;
+		--text: #ffffff80;
+		--bg-input: #03061a;
+		--border-input: #81828c;
+		--modal-bg: #101225;
+		--modal-border: #24263c;
+		--circle: rgba(255, 255, 255, 0.1);
+		--text-game: #81828c;
+		--footer-text: rgba(255, 255, 255, 0.4);
+		--footer-svg: rgba(255, 255, 255, 0.2);
+		--friends-text: #81828c;
+	}
+}

@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package trading;
+
+service TradingGameService {
+  rpc StartSession (StartSessionRequest) returns (StartSessionResponse);
+  rpc GetCurrentPrice (GetCurrentPriceRequest) returns (GetCurrentPriceResponse);
+  rpc PlaceBet (PlaceBetRequest) returns (PlaceBetResponse);
+  rpc GetBetResult (GetBetResultRequest) returns (GetBetResultResponse);
+  rpc GetPriceHistory (GetPriceHistoryRequest) returns (GetPriceHistoryResponse);
+  rpc StreamPrice (StreamPriceRequest) returns (stream PriceUpdate);
+}
+
+message StartSessionRequest {
+  int64 user_id = 1;
+}
+
+message StartSessionResponse {
+  string session_id = 1;
+  double initial_price = 2;
+}
+
+message GetCurrentPriceRequest {
+  string session_id = 1;
+}
+
+message GetCurrentPriceResponse {
+  double price = 1;
+  int64 timestamp = 2;
+}
+
+message PlaceBetRequest {
+  string session_id = 1;
+  int64 user_id = 2;
+  BetDirection direction = 3;
+}
+
+enum BetDirection {
+  UP = 0;
+  DOWN = 1;
+}
+
+message PlaceBetResponse {
+  string bet_id = 1;
+  double entry_price = 2;
+}
+
+message GetBetResultRequest {
+  string bet_id = 1;
+}
+
+message GetBetResultResponse {
+  bool win = 1;
+  int32 points = 2;
+  double entry_price = 3;
+  double closing_price = 4;
+}
+
+message GetPriceHistoryRequest {
+  int64 start_time = 1;
+  int64 end_time = 2;
+}
+
+message GetPriceHistoryResponse {
+  repeated PricePoint price_points = 1;
+}
+
+message PricePoint {
+  double price = 1;
+  int64 timestamp = 2;
+}
+
+message StreamPriceRequest {
+  string session_id = 1;
+}
+
+message PriceUpdate {
+  double price = 1;
+  int64 timestamp = 2;
+}
